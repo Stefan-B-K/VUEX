@@ -1,11 +1,14 @@
 <template>
-  <button @click="increment">Add 1</button>
+  <button @click="increment">Delayed Add {{  incrementBy  }}</button>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
+  computed: {
+    ...mapGetters('counters', ['incrementBy'])
+  },
   methods: {
    ...mapActions('counters', ['increment'])
   }

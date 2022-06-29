@@ -1,10 +1,14 @@
 const state = {
-  counter: 0
+  counter: 0,
+  incrementBy: 3
 };
 
 const getters = {
   theCounter (state) {
-    return state.counter * 2;
+    return state.counter * state.incrementBy;
+  },
+  incrementBy(state) {
+    return state.incrementBy
   },
   limitedCounter (_, getters) {                                     // + rootState, rootGetters
     const limitedCounter = getters.theCounter;
